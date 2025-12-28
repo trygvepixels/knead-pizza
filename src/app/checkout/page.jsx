@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -15,6 +15,7 @@ import Input from '@/components/ui/Input';
 import Select from '@/components/ui/Select';
 import Button from '@/components/ui/Button';
 import toast from 'react-hot-toast';
+import Loading from '@/components/ui/Loading';
 
 const AUSTRALIAN_STATES = [
     { value: '', label: 'Select State' },
@@ -38,6 +39,7 @@ export default function CheckoutPage() {
     const [deliveryType, setDeliveryType] = useState('delivery');
     const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState({});
+    const [isClient, setIsClient] = useState(false);
 
     const [formData, setFormData] = useState({
         firstName: '',
@@ -54,10 +56,17 @@ export default function CheckoutPage() {
 
     const summary = getCartSummary(deliveryType);
 
-    // Redirect if cart is empty
-    if (items.length === 0) {
-        router.push('/cart');
-        return null;
+    // Handle client-side mounting and cart empty check
+    useEffect(() => {
+        setIsClient(true);
+        if (items.length === 0) {
+            router.push('/cart');
+        }
+    }, [items.length, router]);
+
+    // Show loading while checking cart
+    if (!isClient || items.length === 0) {
+        return <Loading />;
     }
 
     const handleInputChange = (e) => {
@@ -195,8 +204,8 @@ export default function CheckoutPage() {
                                         type="button"
                                         onClick={() => setDeliveryType('delivery')}
                                         className={`p-6 rounded-xl border-2 transition-all ${deliveryType === 'delivery'
-                                                ? 'border-red-600 bg-red-50'
-                                                : 'border-gray-300 hover:border-gray-400'
+                                            ? 'border-red-600 bg-red-50'
+                                            : 'border-gray-300 hover:border-gray-400'
                                             }`}
                                     >
                                         <TruckIcon className={`w-10 h-10 mx-auto mb-3 ${deliveryType === 'delivery' ? 'text-red-600' : 'text-gray-400'
@@ -209,8 +218,8 @@ export default function CheckoutPage() {
                                         type="button"
                                         onClick={() => setDeliveryType('pickup')}
                                         className={`p-6 rounded-xl border-2 transition-all ${deliveryType === 'pickup'
-                                                ? 'border-red-600 bg-red-50'
-                                                : 'border-gray-300 hover:border-gray-400'
+                                            ? 'border-red-600 bg-red-50'
+                                            : 'border-gray-300 hover:border-gray-400'
                                             }`}
                                     >
                                         <ShoppingBagIcon className={`w-10 h-10 mx-auto mb-3 ${deliveryType === 'pickup' ? 'text-red-600' : 'text-gray-400'

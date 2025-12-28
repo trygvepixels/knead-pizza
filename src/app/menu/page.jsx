@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
@@ -12,7 +13,7 @@ import { formatPrice } from '@/lib/utils';
 import toast from 'react-hot-toast';
 import Loading from '@/components/ui/Loading';
 
-export default function MenuPage() {
+function MenuContent() {
     const searchParams = useSearchParams();
     const categoryFromUrl = searchParams.get('category');
 
@@ -137,8 +138,8 @@ export default function MenuPage() {
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
                                 className={`px-6 py-3 rounded-full font-semibold transition-all flex items-center gap-2 ${selectedCategory === category
-                                        ? 'bg-gradient-to-r from-red-600 to-orange-500 text-white shadow-lg scale-105'
-                                        : 'bg-white text-gray-700 hover:bg-gray-100 border-2 border-gray-200 hover:border-red-300'
+                                    ? 'bg-gradient-to-r from-red-600 to-orange-500 text-white shadow-lg scale-105'
+                                    : 'bg-white text-gray-700 hover:bg-gray-100 border-2 border-gray-200 hover:border-red-300'
                                     }`}
                             >
                                 <span className="text-xl">{categoryIcons[category]}</span>
@@ -245,3 +246,10 @@ export default function MenuPage() {
     );
 }
 
+export default function MenuPage() {
+    return (
+        <Suspense fallback={<Loading />}>
+            <MenuContent />
+        </Suspense>
+    );
+}
