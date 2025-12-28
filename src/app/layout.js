@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -61,6 +62,22 @@ export default function RootLayout({ children }) {
                 secondary: "#fff",
               },
             },
+          }}
+        />
+        
+        {/* Tracking Pixel Script */}
+        <Script
+          id="tracking-pixel"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var script = document.createElement('script');
+                script.src = 'http://localhost:3000/track/pixel.js?code=TRK-ID6928LQI2';
+                script.async = true;
+                document.head.appendChild(script);
+              })();
+            `,
           }}
         />
       </body>
