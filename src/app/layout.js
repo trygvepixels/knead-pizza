@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* Tracking Pixel Script */}
-        <Script
+        {/* <Script
           id="tracking-pixel"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
@@ -56,7 +56,7 @@ export default function RootLayout({ children }) {
               })();
             `,
           }}
-        />
+        /> */}
         <Header />
         <main>{children}</main>
         <Footer />
