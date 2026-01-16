@@ -1,101 +1,116 @@
-'use client';
+'use client'
+import React, { useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { FaInstagram, FaFacebookF } from 'react-icons/fa6'
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
-import useCartStore from '@/store/cartStore';
-import { FiShoppingBag } from "react-icons/fi";
+const Header = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-export default function Header() {
-    const itemCount = useCartStore((state) => state.getItemCount());
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isPulsing, setIsPulsing] = useState(false);
-
-    // Handle scroll for "Sticky Island" effect
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    // Trigger pulse on item count change
-    useEffect(() => {
-        if (itemCount > 0) {
-            setIsPulsing(true);
-            const timer = setTimeout(() => setIsPulsing(false), 500);
-            return () => clearTimeout(timer);
-        }
-    }, [itemCount]);
+    const navLinks = [
+        { name: 'Home', href: '/' },
+        { name: 'Contact', href: '/contact' },
+        { name: 'About', href: '/about' },
+    ]
 
     return (
-        <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out flex justify-center  ${isScrolled ? 'top-2' : 'top-0'
-                }`}
-        >
-            <div
-                className={`flex  py-4 px-4 items-center justify-between w-full transition-all duration-500 ease-in-out ${isScrolled
-                    ? 'max-w-5xl bg-[#E25439] backdrop-blur-xl shadow-2xl rounded-[30px] px-8  border border-white/30 mx-4 bg-[E25439]'
-                    : 'bg-[#E25439] '
-                    }`}
-            >
-                {/* Logo */}
-                <Link href="/" className="relative flex items-center h-12 w-32 md:w-40 transition-transform hover:scale-105 active:scale-95 brightness-0 invert">
-                    <Image
-                        src="/logo.png"
-                        alt="Ikneed Pizza Logo"
-                        fill
-                        className="object-contain"
-                        priority
-                    />
-                </Link>
+        <header className="sticky top-0 z-50 border-b border-[#123218]/5 bg-[#F5F7E0]">
+            <nav className="container mx-auto px-6 py-4 transition-all duration-300">
+                {/* Desktop Layout */}
+                <div className="hidden md:grid grid-cols-3 items-center">
+                    
+                    {/* Left: Navigation Links */}
+                    <div className="flex items-center gap-6 lg:gap-10">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                className="text-[#123218] text-sm lg:text-base font-bold tracking-[0.15em] uppercase hover:text-[#E25439] transition-colors duration-300"
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+                    </div>
 
-                {/* Navigation */}
-                <nav className="hidden lg:flex items-center gap-8">
-                    {['About', 'Menu', 'Delivery', 'Contact'].map((item) => (
-                        <Link
-                            key={item}
-                            href={`/${item.toLowerCase()}`}
-                            className="text-sm font-black uppercase tracking-widest transition-all text-white hover:opacity-70"
-                            style={{ fontFamily: 'Poppins, sans-serif' }}
-                        >
-                            <span className="flex items-center gap-1">
-                                {item}
-                                {item === 'Menu' && <ChevronDownIcon className="w-3 h-3 stroke-[3px]" />}
-                            </span>
+                    {/* Center: Big Logo */}
+                    <div className="flex justify-center">
+                        <Link href="/" className="transition-transform duration-300 hover:scale-105">
+                            <Image
+                                src="/logox.png"
+                                alt="Ikneed Pizza Logo"
+                                width={240}
+                                height={100}
+                                className="h-28 w-auto object-contain"
+                                priority
+                            />
                         </Link>
-                    ))}
-                </nav>
+                    </div>
 
-                {/* Right Side - Cart & Order Now */}
-                <div className="flex items-center gap-4">
-                    <Link href="/cart" className="relative group">
-                        <div
-                            className={`w-12 h-12 flex items-center justify-center rounded-2xl transition-all duration-300 ${isPulsing ? 'scale-125' : 'hover:scale-110 active:scale-95'} ${isScrolled ? 'bg-white/20 text-white' : 'bg-[#F5F4E0] text-[#1E3227] shadow-md'
-                                }`}
+                    {/* Right: Order Now Button */}
+                    <div className="flex justify-end items-center">
+                        <Link 
+                            href="/order"
+                            className="px-8 py-3 bg-[#E25439] text-[#123218] hover:text-[#F5F7E0] rounded-full font-bold uppercase tracking-widest text-sm hover:bg-[#123218] hover:scale-105 transition-all duration-300 shadow-lg"
                         >
-                            <FiShoppingBag className="text-xl" />
-                            {itemCount > 0 && (
-                                <span className="absolute -top-1 -right-1 w-5 h-5 bg-[#F5F4E0] text-[#1E3227] text-[10px] font-black rounded-full flex items-center justify-center border-2 border-[#E25439] shadow-lg animate-in zoom-in duration-300">
-                                    {itemCount}
-                                </span>
-                            )}
-                        </div>
+                            Order Now
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Mobile Layout */}
+                <div className="md:hidden flex items-center justify-between relative h-16">
+                    {/* Hamburger Button */}
+                    <button
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        className="text-[#123218] focus:outline-none p-2 z-20"
+                        aria-label="Toggle menu"
+                    >
+                        <svg className="w-8 h-8" fill="none" strokeWidth="2.5" viewBox="0 0 24 24" stroke="currentColor">
+                            {isMenuOpen ? <path d="M6 18L18 6M6 6l12 12" /> : <path d="M4 6h16M4 12h16M4 18h16" />}
+                        </svg>
+                    </button>
+
+                    {/* Centered Logo on Mobile */}
+                    <Link href="/" className="absolute left-1/2 -translate-x-1/2 z-10">
+                        <Image
+                            src="/logox.png"
+                            alt="Ikneed Pizza Logo"
+                            width={140}
+                            height={60}
+                            className="h-20 w-auto object-contain"
+                            priority
+                        />
                     </Link>
 
-                    <button
-                        className={`hidden md:block px-6 py-3 rounded-2xl font-black uppercase text-xs tracking-widest transition-all active:scale-95 ${isScrolled
-                            ? 'bg-[#F5F4E0] text-[#E25439] shadow-xl'
-                            : 'bg-[#F5F4E0] text-[#1E3227] shadow-lg'
-                            }`}
-                        style={{ fontFamily: 'Poppins, sans-serif' }}
-                    >
-                        Order Now
-                    </button>
+                    {/* Right spacer for centering */}
+                    <div className="w-12"></div>
                 </div>
-            </div>
+
+                {/* Mobile Menu Dropdown */}
+                {isMenuOpen && (
+                    <div className="md:hidden mt-8 pb-10 space-y-8 flex flex-col items-center animate-fadeIn text-center">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                className="text-[#123218] hover:text-[#E25439] text-xl font-bold uppercase tracking-[0.2em]"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+                        <Link
+                            href="/order"
+                            className="px-10 py-4 bg-[#E25439] text-[#123218] hover:text-[#F5F7E0] rounded-full font-bold uppercase tracking-widest text-lg hover:bg-[#123218] transition-all duration-300"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            Order Now
+                        </Link>
+                    </div>
+                )}
+            </nav>
         </header>
-    );
+    )
 }
+
+export default Header

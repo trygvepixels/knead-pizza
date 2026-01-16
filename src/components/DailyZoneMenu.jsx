@@ -193,10 +193,15 @@ export default function DailyZoneMenu() {
                                         </div>
 
                                         <div className="flex items-center justify-between">
-                                            <button className="flex items-center gap-2 bg-white text-[#1E3227] px-6 py-2.5 rounded-full text-[13px] font-black shadow-lg hover:bg-gray-50 transition-all active:scale-95">
+                                            <a 
+                                                href="https://knead-pizzerria.square.site" 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-2 bg-white text-[#1E3227] px-6 py-2.5 rounded-full text-[13px] font-black shadow-lg hover:bg-gray-50 transition-all active:scale-95"
+                                            >
                                                 Order Now
                                                 <HiOutlineArrowNarrowRight size={16} className="text-[#E25439] stroke-2" />
-                                            </button>
+                                            </a>
                                             <div className="flex items-center gap-1 font-black text-sm">
                                                 <FaStar className="text-white text-xs" />
                                                 <span>{item.rating}</span>

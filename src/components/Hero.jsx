@@ -26,7 +26,22 @@ export default function PizzaHero() {
         }
       `}</style>
 
-      <section className="relative min-h-[90vh] bg-[#E25439] overflow-hidden flex items-center ">
+      <section className="relative min-h-screen bg-[#E25439] overflow-hidden flex items-center ">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/hero-video.mp4" type="video/mp4" />
+          </video>
+          {/* Overlay to ensure text readability */}
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+
         {/* Main Content */}
         <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center px-6 md:px-12 max-w-7xl mx-auto w-full">
           {/* Left Content */}
@@ -49,7 +64,7 @@ export default function PizzaHero() {
             {/* CTA Button & Stamp Row */}
             <div className="flex items-center gap-12 pt-4">
               <button className="px-10 py-5 bg-[#1E3227] text-[#F5F4E0] rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-2xl" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                Get Your Coupon
+             Order Now
               </button>
 
               {/* Halal Stamp Placeholder Rendering */}
