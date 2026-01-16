@@ -3,109 +3,111 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FiShoppingBag } from "react-icons/fi";
 import hero from '@/assets/hero.png'
 
 export default function PizzaHero() {
   return (
     <>
-      {/* Add Google Font */}
+      {/* Add Google Font and Animations */}
       <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+        
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+
+        .animate-spin-slow {
+          animation: spin-slow 10s linear infinite;
+        }
+
+        .animate-pizza-slow {
+          animation: spin-slow 80s linear infinite;
+        }
       `}</style>
 
-      <section className="relative pt-20 min-h-screen bg-gradient-to-br from-[#E67449] to-[#D63227] overflow-hidden">
-        {/* Header */}
-
-
+      <section className="relative min-h-[90vh] bg-[#E25439] overflow-hidden flex items-center ">
         {/* Main Content */}
-        <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center px-6 md:px-12 py-12 md:py-0 max-w-7xl mx-auto">
+        <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center px-6 md:px-12 max-w-7xl mx-auto w-full">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {/* Decorative Wave */}
-            <svg width="328" height="25" viewBox="0 0 328 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 12.5C2 12.5 42 2 82 12.5C122 23 162 12.5 162 12.5C162 12.5 202 2 242 12.5C282 23 322 12.5 326 12.5" stroke="#FDB913" strokeWidth="4" strokeLinecap="round" />
-            </svg>
+            <div className="w-24">
+              <svg width="100%" height="20" viewBox="0 0 100 20" fill="none" preserveAspectRatio="none">
+                <path d="M0 10 Q 12.5 0, 25 10 T 50 10 T 75 10 T 100 10" stroke="#F5F4E0" strokeWidth="6" strokeLinecap="round" fill="none" />
+              </svg>
+            </div>
 
             {/* Main Heading */}
-            <h1 className="text-white leading-none" style={{ fontFamily: 'Nunito, sans-serif' }}>
-              <div className="text-6xl md:text-8xl font-extrabold mb-2">
-                The best
-              </div>
-              <div className="text-6xl md:text-8xl font-extrabold mb-2">
-                pizza to
-              </div>
-              <div className="text-6xl md:text-8xl font-extrabold">
-                share with
-              </div>
-              <div className="text-6xl md:text-8xl font-extrabold">
-                friends
-              </div>
+            <h1 className="text-white text-6xl md:text-[5.5rem] font-[900] leading-[1.05] tracking-tight" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              The best<br />
+              pizza to<br />
+              share with<br />
+              friends
             </h1>
 
-            {/* CTA Button */}
-            <button className="px-10 py-4 bg-black text-white rounded-full font-bold text-lg hover:bg-gray-900 transition-colors shadow-xl" style={{ fontFamily: 'Nunito, sans-serif' }}>
-              Get Your Coupon
-            </button>
+            {/* CTA Button & Stamp Row */}
+            <div className="flex items-center gap-12 pt-4">
+              <button className="px-10 py-5 bg-[#1E3227] text-[#F5F4E0] rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-2xl" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                Get Your Coupon
+              </button>
+
+              {/* Halal Stamp Placeholder Rendering */}
+              <div className="relative w-32 h-32 flex items-center justify-center">
+                <div className="absolute inset-0 rounded-full border-4 border-[#F5F4E0]/30 border-dashed animate-spin-slow"></div>
+                <div className="w-28 h-28 rounded-full border-4 border-[#F5F4E0] flex flex-center text-center p-2 rotate-12">
+                   <div className="flex flex-col items-center justify-center w-full h-full border-2 border-[#F5F4E0] rounded-full">
+                      <span className="text-[#F5F4E0] text-[0.6rem] font-bold uppercase tracking-widest">100% </span>
+                      <span className="text-[#F5F4E0] text-sm font-black uppercase">Fresh</span>
+                   </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Right Content - Pizza Image */}
-          <div className="relative">
-
-            {/* Pizza Image Container */}
-            <div className="relative w-full aspect-square">
-              {/* Pizza Image with imported hero.png */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-100 to-orange-200 shadow-2xl">
-                <div className="w-full h-full rounded-full overflow-hidden">
-                  <Image
-                    src={hero}
-                    alt="Delicious Pizza"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
+          <div className="relative h-[600px] md:h-[800px] flex items-center">
+            <div className="absolute right-[-20%] md:right-[-30%] w-[120%] aspect-square max-w-[900px]">
+              <div className="w-full h-full rounded-full overflow-hidden shadow-2xl ring-[20px] ring-white/10 animate-pizza-slow">
+                <Image
+                  src={hero}
+                  alt="Delicious Pizza"
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
-
-
             </div>
           </div>
         </div>
 
-        {/* Ticker Tape */}
-        <div className="absolute bottom-0 left-0 right-0 bg-[#FFF8E7] py-4 overflow-hidden">
-          <div className="flex items-center gap-8 animate-scroll whitespace-nowrap">
-            <span className="text-black text-2xl md:text-3xl font-black" style={{ fontFamily: 'Nunito, sans-serif' }}>
-              We have faster delivery in your town
-            </span>
-            <span className="text-[#E67449] text-3xl">✱</span>
-            <span className="text-black text-2xl md:text-3xl font-black" style={{ fontFamily: 'Nunito, sans-serif' }}>
-              We have faster delivery in your town
-            </span>
-            <span className="text-[#EF4136] text-3xl">✱</span>
-            <span className="text-black text-2xl md:text-3xl font-black" style={{ fontFamily: 'Nunito, sans-serif' }}>
-              We have faster delivery in your town
-            </span>
-            <span className="text-[#EF4136] text-3xl">✱</span>
+        {/* Ticker Tape Ribbon */}
+        <div className="absolute bottom-6 left-0 right-0 py-8 bg-[#F5F4E0] -rotate-2 scale-110 origin-center z-20 shadow-xl overflow-hidden">
+          <div className="flex items-center gap-12 animate-scroll whitespace-nowrap px-4">
+            {[...Array(6)].map((_, i) => (
+              <React.Fragment key={i}>
+                <span className="text-[#1E3227] text-3xl md:text-4xl font-black uppercase tracking-tighter" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  faster delivery in your town
+                </span>
+                <span className="text-[#E25439] text-4xl">✱</span>
+              </React.Fragment>
+            ))}
           </div>
         </div>
 
         {/* Background Decorative Elements */}
-        <div className="absolute top-1/4 right-12 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-12 w-48 h-48 bg-white/5 rounded-full blur-2xl" />
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[50%] h-[50%] bg-black/10 rounded-full blur-[120px]" />
       </section>
 
       <style jsx>{`
         @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-33.33%); }
         }
 
         .animate-scroll {
-          animation: scroll 20s linear infinite;
+          animation: scroll 30s linear infinite;
           display: flex;
         }
       `}</style>

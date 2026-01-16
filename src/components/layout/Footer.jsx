@@ -32,36 +32,26 @@ export default function Footer() {
                     >
                         <path
                             d="M0,40 Q30,5 80,30 Q150,65 220,35 Q290,5 360,40 Q430,75 500,35 Q570,0 640,40 Q710,80 780,40 Q850,0 920,35 Q990,70 1060,40 Q1130,10 1200,40 L1200,0 L0,0 Z"
-                            fill="#1a1a1a"
+                            fill="#1E3227"
                         />
                     </svg>
                 </div>
 
                 {/* Main Footer Content */}
-                <div className="relative z-20 bg-[#1a1a1a] pt-24 pb-8">
+                <div className="relative z-20 bg-[#1E3227] pt-24 pb-8">
                     <div className="max-w-7xl mx-auto px-4 md:px-8">
                         {/* Top Section */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
                             {/* Logo & Description */}
                             <div>
                                 <div className="mb-6">
-                                    <div className="bg-[#E67449] inline-block px-6 py-3 rounded-lg shadow-xl">
-                                        <h3
-                                            className="text-white text-4xl font-extrabold tracking-tight"
-                                            style={{
-                                                fontFamily: "Nunito, sans-serif",
-                                            }}
-                                        >
-                                            Knead
-                                        </h3>
-                                        <p
-                                            className="text-white/90 text-xs font-medium tracking-wide mt-1"
-                                            style={{
-                                                fontFamily: "Nunito, sans-serif",
-                                            }}
-                                        >
-                                            NOT A WANT, IT'S A KNEAD
-                                        </p>
+                                    <div className="relative h-16 w-40 brightnes s-0 inv ert">
+                                        <Image
+                                            src="/logo.png"
+                                            alt="Knead Logo"
+                                            fill
+                                            className="object-contain"
+                                        />
                                     </div>
                                 </div>
                                 <p
@@ -71,7 +61,7 @@ export default function Footer() {
                                     <strong className="text-white text-base block mb-2">HAND STRETCHED ARTISAN PIZZA</strong>
                                     Authentic Italian-style pizzas made with passion in Henley Beach, Adelaide. Fresh ingredients, handcrafted with love.
                                 </p>
-                                <p className="text-[#F5A623] font-semibold text-sm">
+                                <p className="text-[#E25439] font-black uppercase tracking-widest text-sm">
                                     Open Now in Henley Beach! 🍕
                                 </p>
                             </div>
@@ -89,7 +79,7 @@ export default function Footer() {
                                 </h4>
                                 <div className="space-y-4">
                                     <div className="flex items-start gap-3">
-                                        <FaMapMarkerAlt className="text-[#E67449] mt-1 flex-shrink-0 text-lg" />
+                                        <FaMapMarkerAlt className="text-[#E25439] mt-1 flex-shrink-0 text-lg" />
                                         <p
                                             className="text-gray-300 text-sm font-medium"
                                             style={{ fontFamily: "Poppins, sans-serif" }}
@@ -100,19 +90,19 @@ export default function Footer() {
                                         </p>
                                     </div>
                                     <div className="flex items-center gap-3">
-                                        <FaPhone className="text-[#E67449] flex-shrink-0 text-lg" />
+                                        <FaPhone className="text-[#E25439] flex-shrink-0 text-lg" />
                                         <a href="tel:0466477713"
-                                            className="text-gray-300 text-sm hover:text-[#F5A623] transition-colors font-semibold"
+                                            className="text-gray-300 text-sm hover:text-[#E25439] transition-colors font-semibold"
                                             style={{ fontFamily: "Poppins, sans-serif" }}
                                         >
                                             0466 477 713
                                         </a>
                                     </div>
                                     <div className="flex items-center gap-3">
-                                        <FaEnvelope className="text-[#E67449] flex-shrink-0 text-lg" />
+                                        <FaEnvelope className="text-[#E25439] flex-shrink-0 text-lg" />
                                         <a
                                             href="mailto:info@ikneadpizza.com.au"
-                                            className="text-gray-300 text-sm hover:text-[#F5A623] transition-colors"
+                                            className="text-gray-300 text-sm hover:text-[#E25439] transition-colors"
                                             style={{ fontFamily: "Poppins, sans-serif" }}
                                         >
                                             info@ikneadpizza.com.au
@@ -144,13 +134,13 @@ export default function Footer() {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         placeholder="Your email..."
-                                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#F5A623] transition-colors"
+                                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#E25439] transition-colors"
                                         style={{ fontFamily: "Poppins, sans-serif" }}
                                         required
                                     />
                                     <button
                                         type="submit"
-                                        className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-[#F5A623] rounded-lg hover:bg-[#E09200] transition-colors"
+                                        className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-[#E25439] rounded-lg hover:opacity-90 transition-colors"
                                     >
                                         <FaArrowRight className="text-white" />
                                     </button>
@@ -162,37 +152,37 @@ export default function Footer() {
                         <div className="border-t border-dotted border-gray-700 mb-8" />
 
                         {/* Bottom Section */}
-            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-              {/* Copyright */}
-              <p
-                className="text-gray-500 text-sm"
-                style={{ fontFamily: "Poppins, sans-serif" }}
-              >
-                © {new Date().getFullYear()} Knead Pizzeria Henley Beach. All Rights Reserved
-              </p>
+                        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+                            {/* Copyright */}
+                            <p
+                                className="text-gray-500 text-sm"
+                                style={{ fontFamily: "Poppins, sans-serif" }}
+                            >
+                                © {new Date().getFullYear()} Knead Pizzeria Henley Beach. All Rights Reserved
+                            </p>
 
-              {/* Social Media Icons */}
-              <div className="flex items-center gap-4">
-                <Link
-                  href="https://instagram.com/ikneadpizzahenleybeach"
-                  target="_blank"
-                  className="w-10 h-10 rounded-lg border-2 border-[#E67449] flex items-center justify-center text-[#E67449] hover:bg-[#E67449] hover:text-white transition-all"
-                  title="@ikneadpizzahenleybeach"
-                >
-                  <FaInstagram className="text-lg" />
-                </Link>
-                <Link
-                  href="https://facebook.com/ikneadpizzahenleybeach"
-                  target="_blank"
-                  className="w-10 h-10 rounded-lg border-2 border-gray-600 flex items-center justify-center text-gray-400 hover:border-[#E67449] hover:text-[#E67449] transition-all"
-                >
-                  <FaFacebookF className="text-lg" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </>
-  );
+                            {/* Social Media Icons */}
+                            <div className="flex items-center gap-4">
+                                <Link
+                                    href="https://instagram.com/ikneadpizzahenleybeach"
+                                    target="_blank"
+                                    className="w-10 h-10 rounded-lg border-2 border-[#E25439] flex items-center justify-center text-[#E25439] hover:bg-[#E25439] hover:text-[#F5F4E0] transition-all"
+                                    title="@ikneadpizzahenleybeach"
+                                >
+                                    <FaInstagram className="text-lg" />
+                                </Link>
+                                <Link
+                                    href="https://facebook.com/ikneadpizzahenleybeach"
+                                    target="_blank"
+                                    className="w-10 h-10 rounded-lg border-2 border-gray-600 flex items-center justify-center text-gray-400 hover:border-[#E25439] hover:text-[#E25439] transition-all"
+                                >
+                                    <FaFacebookF className="text-lg" />
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </>
+    );
 }

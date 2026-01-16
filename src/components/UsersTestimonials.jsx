@@ -73,12 +73,12 @@ export default function UsersTestimonials() {
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&display=swap');
       `}</style>
 
-      <section className="relative min-h-screen bg-[#E8DDD3] py-20 overflow-hidden">
+      <section className="relative min-h-screen bg-[#F5F4E0] py-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           {/* Header */}
           <div className="text-center mb-20">
             <h2
-              className="text-5xl md:text-6xl font-bold text-[#8B2E1F] mb-4"
+              className="text-5xl md:text-6xl font-black text-[#E25439] mb-4"
               style={{
                 fontFamily: "Bebas Neue, sans-serif",
                 letterSpacing: "2px",
@@ -91,7 +91,7 @@ export default function UsersTestimonials() {
               <svg width="200" height="8" viewBox="0 0 200 8" fill="none">
                 <path
                   d="M2 4C2 4 50 1 100 4C150 7 198 4 198 4"
-                  stroke="#F5A623"
+                  stroke="#1E3227"
                   strokeWidth="3"
                   strokeLinecap="round"
                 />
@@ -121,7 +121,7 @@ export default function UsersTestimonials() {
                 >
                   {/* Avatar and Name */}
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="relative w-14 h-14 rounded-full overflow-hidden ring-2 ring-[#8B2E1F]/20">
+                    <div className="relative w-14 h-14 rounded-full overflow-hidden ring-2 ring-[#E25439]/20">
                       <img
                         src={testimonial.avatar}
                         alt={testimonial.name}
@@ -130,7 +130,7 @@ export default function UsersTestimonials() {
                       />
                     </div>
                     <h3
-                      className="text-lg font-bold text-[#2D1810]"
+                      className="text-lg font-bold text-[#1E3227]"
                       style={{
                         fontFamily: "Bebas Neue, sans-serif",
                         letterSpacing: "1px",
@@ -150,7 +150,7 @@ export default function UsersTestimonials() {
 
                   {/* Date */}
                   <div className="flex items-center gap-2 text-xs text-gray-500">
-                    <FaCalendarAlt className="text-[#8B2E1F]" />
+                    <FaCalendarAlt className="text-[#E25439]" />
                     <span style={{ fontFamily: "Poppins, sans-serif" }}>
                       {testimonial.date}
                     </span>

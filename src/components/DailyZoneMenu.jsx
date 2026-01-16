@@ -1,373 +1,238 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
+import { FaHeart, FaStar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { HiOutlineArrowNarrowRight } from "react-icons/hi";
+import { GiFullPizza, GiBreadSlice, GiNoodles, GiChiliPepper, GiGlassShot, GiCakeSlice, GiHotMeal } from "react-icons/gi";
 
 export default function DailyZoneMenu() {
-    const [selectedCategory, setSelectedCategory] = useState("PIZZA");
+    const scrollRef = useRef(null);
+    const [selectedCategory, setSelectedCategory] = useState("Pizza");
 
-    const menuCategories = [
-        { id: 1, name: "PIZZA", icon: "🍕" },
-        { id: 2, name: "PASTA", icon: "🍝" },
-        { id: 3, name: "SALADS", icon: "🥗" },
-        { id: 4, name: "DRINKS", icon: "🥤" },
-        { id: 5, name: "DESSERTS", icon: "🍰" },
-        { id: 6, name: "SIDES", icon: "🍟" },
+    const categories = [
+        { name: "Pizza", icon: <GiFullPizza size={32} /> },
+        { name: "Sourdough", icon: <GiBreadSlice size={32} /> },
+        { name: "Pasta", icon: <GiNoodles size={32} /> },
+        { name: "Burgers", icon: <GiChiliPepper size={32} /> },
+        { name: "Soups", icon: <GiHotMeal size={32} /> },
+        { name: "Desserts", icon: <GiCakeSlice size={32} /> },
+        { name: "Drinks", icon: <GiGlassShot size={32} /> },
     ];
 
-    // Sample Menu Data
-    const menuItems = {
-        PIZZA: [
+    const menuData = {
+        Pizza: [
             {
                 id: 1,
-                name: "Margherita Classic",
-                description: "Fresh mozzarella, basil, tomato sauce",
-                price: "$15",
-                image: "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=300&h=300&fit=crop",
+                name: "Burrata & Me",
+                price: "28.00",
+                rating: "5.0",
+                image: "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=400&h=400&fit=crop",
+                bgColor: "bg-[#F37070]",
+                shadowColor: "shadow-[#F37070]/30",
             },
             {
                 id: 2,
-                name: "Pepperoni Delight",
-                description: "Double pepperoni, mozzarella, oregano",
-                price: "$18",
-                image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=300&h=300&fit=crop",
+                name: "Pepperoni",
+                price: "26.00",
+                rating: "4.9",
+                image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400&h=400&fit=crop",
+                bgColor: "bg-[#F58F29]",
+                shadowColor: "shadow-[#F58F29]/30",
             },
             {
                 id: 3,
-                name: "Veggie Supreme",
-                description: "Bell peppers, mushrooms, olives, onions",
-                price: "$16",
-                image: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=300&h=300&fit=crop",
+                name: "Henley Med",
+                price: "28.00",
+                rating: "5.0",
+                image: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=400&h=400&fit=crop",
+                bgColor: "bg-[#6BCB36]",
+                shadowColor: "shadow-[#6BCB36]/30",
             },
             {
                 id: 4,
-                name: "BBQ Chicken",
-                description: "Grilled chicken, BBQ sauce, red onions",
-                price: "$19",
-                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300&h=300&fit=crop",
+                name: "Margheritaaaaa",
+                price: "22.00",
+                rating: "4.8",
+                image: "https://images.unsplash.com/photo-1574071318508-1cdbad80ad38?w=400&h=400&fit=crop",
+                bgColor: "bg-[#615CEF]",
+                shadowColor: "shadow-[#615CEF]/30",
             },
         ],
-        PASTA: [
+        Sourdough: [
             {
                 id: 5,
-                name: "Spaghetti Carbonara",
-                description: "Creamy sauce, bacon, parmesan",
-                price: "$14",
-                image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=300&h=300&fit=crop",
-            },
-            {
-                id: 6,
-                name: "Penne Arrabbiata",
-                description: "Spicy tomato sauce, garlic, chili",
-                price: "$13",
-                image: "https://images.unsplash.com/photo-1598866594230-a7c12756260f?w=300&h=300&fit=crop",
-            },
-            {
-                id: 7,
-                name: "Fettuccine Alfredo",
-                description: "Rich cream sauce, parmesan cheese",
-                price: "$15",
-                image: "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=300&h=300&fit=crop",
-            },
-            {
-                id: 8,
-                name: "Lasagna Bolognese",
-                description: "Layers of pasta, meat sauce, cheese",
-                price: "$17",
-                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=300&h=300&fit=crop",
-            },
+                name: "Freshly Baked",
+                price: "15.00",
+                rating: "5.0",
+                image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=400&fit=crop",
+                bgColor: "bg-[#F37070]",
+                shadowColor: "shadow-[#F37070]/30",
+            }
         ],
-        SALADS: [
-            {
-                id: 9,
-                name: "Caesar Salad",
-                description: "Romaine lettuce, croutons, parmesan",
-                price: "$10",
-                image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?w=300&h=300&fit=crop",
-            },
-            {
-                id: 10,
-                name: "Greek Salad",
-                description: "Feta cheese, olives, tomatoes, cucumber",
-                price: "$11",
-                image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=300&h=300&fit=crop",
-            },
-            {
-                id: 11,
-                name: "Garden Fresh",
-                description: "Mixed greens, cherry tomatoes, vinaigrette",
-                price: "$9",
-                image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=300&h=300&fit=crop",
-            },
-            {
-                id: 12,
-                name: "Caprese Salad",
-                description: "Fresh mozzarella, tomato, basil, balsamic",
-                price: "$12",
-                image: "https://images.unsplash.com/photo-1608897013039-887f21d8c804?w=300&h=300&fit=crop",
-            },
-        ],
-        DRINKS: [
-            {
-                id: 13,
-                name: "Fresh Lemonade",
-                description: "House-made, refreshing citrus drink",
-                price: "$5",
-                image: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=300&h=300&fit=crop",
-            },
-            {
-                id: 14,
-                name: "Italian Soda",
-                description: "Sparkling water with fruit syrup",
-                price: "$6",
-                image: "https://images.unsplash.com/photo-1437418747212-8d9709afab22?w=300&h=300&fit=crop",
-            },
-            {
-                id: 15,
-                name: "Iced Coffee",
-                description: "Cold brew with milk and ice",
-                price: "$5",
-                image: "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=300&h=300&fit=crop",
-            },
-            {
-                id: 16,
-                name: "Mineral Water",
-                description: "Sparkling or still, imported",
-                price: "$4",
-                image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=300&fit=crop",
-            },
-        ],
-        DESSERTS: [
-            {
-                id: 17,
-                name: "Tiramisu",
-                description: "Classic Italian coffee-flavored dessert",
-                price: "$8",
-                image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=300&h=300&fit=crop",
-            },
-            {
-                id: 18,
-                name: "Chocolate Lava Cake",
-                description: "Warm cake with molten chocolate center",
-                price: "$9",
-                image: "https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=300&h=300&fit=crop",
-            },
-            {
-                id: 19,
-                name: "Panna Cotta",
-                description: "Italian cream dessert with berry sauce",
-                price: "$7",
-                image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=300&h=300&fit=crop",
-            },
-            {
-                id: 20,
-                name: "Gelato",
-                description: "Italian ice cream, various flavors",
-                price: "$6",
-                image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=300&fit=crop",
-            },
-        ],
-        SIDES: [
-            {
-                id: 21,
-                name: "Garlic Bread",
-                description: "Toasted bread with garlic butter",
-                price: "$6",
-                image: "https://images.unsplash.com/photo-1619365584863-1785d5f0f3f6?w=300&h=300&fit=crop",
-            },
-            {
-                id: 22,
-                name: "Mozzarella Sticks",
-                description: "Breaded cheese sticks with marinara",
-                price: "$8",
-                image: "https://images.unsplash.com/photo-1531749668029-2db88e4276c7?w=300&h=300&fit=crop",
-            },
-            {
-                id: 23,
-                name: "Chicken Wings",
-                description: "Crispy wings with choice of sauce",
-                price: "$10",
-                image: "https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=300&h=300&fit=crop",
-            },
-            {
-                id: 24,
-                name: "Bruschetta",
-                description: "Grilled bread with tomato and basil",
-                price: "$7",
-                image: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=300&h=300&fit=crop",
-            },
-        ],
+        // Additional categories can be populated as needed
     };
 
-    const currentItems = menuItems[selectedCategory] || [];
+    const currentItems = menuData[selectedCategory] || menuData["Pizza"];
+
+    const scroll = (direction) => {
+        if (scrollRef.current) {
+            const { scrollLeft, clientWidth } = scrollRef.current;
+            const scrollTo = direction === 'left' ? scrollLeft - clientWidth : scrollLeft + clientWidth;
+            scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+        }
+    };
 
     return (
-        <>
-            {/* Google Fonts */}
-            <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&family=Dela+Gothic+One&display=swap');
-      `}</style>
-
-            <section className="relative bg-gradient-to-br from-[#F9F6F0] to-[#E8DDD3] py-20 overflow-hidden">
-                {/* Decorative Top Border */}
-                <div className="absolute top-0 left-0 right-0 h-2 flex">
-                    {[...Array(50)].map((_, i) => (
-                        <div
-                            key={i}
-                            className={`flex-1 h-full ${i % 2 === 0 ? "bg-[#E67449]" : "bg-[#2C3E2E]"}`}
-                        />
-                    ))}
-                </div>
-
-                {/* Decorative Bottom Border */}
-                <div className="absolute bottom-0 left-0 right-0 h-2 flex">
-                    {[...Array(50)].map((_, i) => (
-                        <div
-                            key={i}
-                            className={`flex-1 h-full ${i % 2 === 0 ? "bg-[#2C3E2E]" : "bg-[#E67449]"}`}
-                        />
-                    ))}
-                </div>
-
-                <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
+        <section className="bg-[#F5F4E0] py-20 px-4 md:px-8">
+            <div className="max-w-7xl mx-auto">
+                <div className="relative bg-white rounded-[60px] p-8 md:p-16 shadow-2xl shadow-orange-100/50">
+                    
                     {/* Header */}
-                    <div className="text-center mb-16">
+                    <div className="text-center mb-10">
                         <h2
-                            className="text-5xl md:text-6xl font-bold text-[#2C3E2E] mb-2"
+                            className="text-5xl md:text-7xl font-black text-[#1E3227] mb-4"
                             style={{
                                 fontFamily: "Dela Gothic One, sans-serif",
-                                letterSpacing: "3px",
+                                letterSpacing: "1px",
                             }}
                         >
                             OUR MENU
                         </h2>
                         <p
-                            className="text-lg text-gray-600 max-w-2xl mx-auto"
+                            className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto font-medium"
                             style={{ fontFamily: "Poppins, sans-serif" }}
                         >
-                            Hand-stretched artisan pizzas made fresh daily in Henley Beach
+                            Hand-stretched artisan pizzas made fresh daily in <br className="hidden md:block" /> Henley Beach
                         </p>
 
                         {/* Decorative Underline */}
-                        <div className="flex justify-center mt-4">
-                            <svg width="200" height="8" viewBox="0 0 200 8" fill="none">
+                        <div className="flex justify-center mt-6">
+                            <svg width="280" height="12" viewBox="0 0 280 12" fill="none">
                                 <path
-                                    d="M2 4C2 4 50 1 100 4C150 7 198 4 198 4"
-                                    stroke="#E67449"
-                                    strokeWidth="3"
+                                    d="M2 6C2 6 70 2 140 6C210 10 278 6 278 6"
+                                    stroke="#E25439"
+                                    strokeWidth="4"
                                     strokeLinecap="round"
                                 />
                             </svg>
                         </div>
                     </div>
 
-                    {/* Menu Categories - Clickable */}
-                    <div className="grid grid-cols-3 md:grid-cols-6 gap-4 mb-16">
-                        {menuCategories.map((category) => (
+                    {/* Menu Category Toggle */}
+                    <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 mb-1 border-b border-gray-100 pb-8">
+                        {categories.map((cat) => (
                             <button
-                                key={category.id}
-                                onClick={() => setSelectedCategory(category.name)}
-                                className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${selectedCategory === category.name ? "scale-110" : ""
-                                    }`}
+                                key={cat.name}
+                                onClick={() => setSelectedCategory(cat.name)}
+                                className={`flex flex-col items-center gap-3 group transition-all duration-300 ${
+                                    selectedCategory === cat.name ? "opacity-100 scale-110" : "opacity-40 hover:opacity-100"
+                                }`}
                             >
-                                <div
-                                    className={`relative rounded-2xl overflow-hidden shadow-lg p-6 ${selectedCategory === category.name
-                                            ? "bg-gradient-to-br from-[#E67449] to-[#D63227] ring-4 ring-[#F5A623] scale-105"
-                                            : "bg-white hover:shadow-xl"
-                                        } transition-all duration-300 flex items-center justify-center`}
-                                >
-                                    <div className="text-center">
-                                        <div className={`text-5xl mb-2 transition-transform ${selectedCategory === category.name ? "scale-110" : "group-hover:scale-110"
-                                            }`}>
-                                            {category.icon}
-                                        </div>
-                                        <p
-                                            className={`text-xs font-bold ${selectedCategory === category.name ? "text-white" : "text-[#2C3E2E]"
-                                                }`}
-                                            style={{ fontFamily: "Poppins, sans-serif" }}
-                                        >
-                                            {category.name}
-                                        </p>
+                                <div className={`transition-all duration-300 ${
+                                    selectedCategory === cat.name ? "text-[#E25439]" : "text-[#1E3227]/60"
+                                }`}>
+                                    {/* Icon container */}
+                                    <div className="w-16 h-16 flex items-center justify-center">
+                                        {cat.icon}
                                     </div>
                                 </div>
+                                <span className={`text-sm font-bold uppercase tracking-widest ${
+                                    selectedCategory === cat.name ? "text-[#1E3227]" : "text-[#1E3227]/40"
+                                }`}>
+                                    {cat.name}
+                                </span>
                             </button>
                         ))}
                     </div>
 
-                    {/* Selected Category Items Preview */}
-                    <div className="mb-12">
-                        <h3
-                            className="text-3xl font-bold text-[#2C3E2E] mb-8 text-center"
-                            style={{ fontFamily: "Dela Gothic One, sans-serif" }}
-                        >
-                            {selectedCategory}
-                        </h3>
+                    {/* Navigation Arrows */}
+                    <button
+                        onClick={() => scroll('left')}
+                        className="absolute left-[-28px] top-[65%] -translate-y-1/2 w-14 h-14 rounded-full bg-white shadow-xl flex items-center justify-center text-[#1E3227] hover:bg-[#E25439] hover:text-white transition-all duration-300 z-20 border border-gray-100 hidden md:flex"
+                    >
+                        <FaChevronLeft size={20} />
+                    </button>
+                    <button
+                        onClick={() => scroll('right')}
+                        className="absolute right-[-28px] top-[65%] -translate-y-1/2 w-14 h-14 rounded-full bg-white shadow-xl flex items-center justify-center text-[#1E3227] hover:bg-[#E25439] hover:text-white transition-all duration-300 z-20 border border-gray-100 hidden md:flex"
+                    >
+                        <FaChevronRight size={20} />
+                    </button>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {currentItems.map((item) => (
-                                <div
-                                    key={item.id}
-                                    className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-                                >
-                                    {/* Image */}
-                                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-                                        <img
-                                            src={item.image}
-                                            alt={item.name}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                        />
+                    {/* Cards Container */}
+                    <div
+                        ref={scrollRef}
+                        className="flex overflow-x-auto gap-10 pb-12 pt-20 no-scrollbar snap-x snap-mandatory px-4"
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    >
+                        {currentItems.map((item) => (
+                            <div
+                                key={item.id}
+                                className="flex-none w-[280px] snap-center group"
+                            >
+                                <div className={`relative ${item.bgColor} ${item.shadowColor} shadow-2xl rounded-[45px] pt-24 pb-8 px-8 transition-transform duration-300 group-hover:-translate-y-2`}>
+
+                                    <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-44 h-44 rounded-full border-[10px] border-white/30 p-1 group-hover:scale-105 transition-transform duration-500">
+                                        <div className="w-full h-full rounded-full overflow-hidden border-[6px] border-white shadow-2xl">
+                                            <img
+                                                src={item.image}
+                                                alt={item.name}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </div>
                                     </div>
 
-                                    {/* Content */}
-                                    <div className="p-5">
-                                        <h4
-                                            className="text-lg font-bold text-[#2C3E2E] mb-2"
-                                            style={{ fontFamily: "Poppins, sans-serif" }}
-                                        >
-                                            {item.name}
-                                        </h4>
-                                        <p
-                                            className="text-sm text-gray-600 mb-4"
-                                            style={{ fontFamily: "Poppins, sans-serif" }}
-                                        >
-                                            {item.description}
-                                        </p>
+                                    <div className="text-white">
+                                        <h3 className="text-2xl font-black mb-1 opacity-95" style={{ fontFamily: 'Poppins, sans-serif' }}>{item.name}</h3>
+                                        <div className="flex items-center justify-between mb-8">
+                                            <span className="text-3xl font-black font-serif">${item.price}</span>
+                                            <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center cursor-pointer hover:bg-white hover:text-red-500 transition-all">
+                                                <FaHeart size={16} />
+                                            </div>
+                                        </div>
+
                                         <div className="flex items-center justify-between">
-                                            <span
-                                                className="text-2xl font-bold text-[#E67449]"
-                                                style={{ fontFamily: "Dela Gothic One, sans-serif" }}
-                                            >
-                                                {item.price}
-                                            </span>
-                                            <button className="px-4 py-2 bg-gradient-to-r from-[#E67449] to-[#D63227] text-white rounded-full text-sm font-bold hover:shadow-lg transition-all hover:scale-105">
-                                                Add
+                                            <button className="flex items-center gap-2 bg-white text-[#1E3227] px-6 py-2.5 rounded-full text-[13px] font-black shadow-lg hover:bg-gray-50 transition-all active:scale-95">
+                                                Order Now
+                                                <HiOutlineArrowNarrowRight size={16} className="text-[#E25439] stroke-2" />
                                             </button>
+                                            <div className="flex items-center gap-1 font-black text-sm">
+                                                <FaStar className="text-white text-xs" />
+                                                <span>{item.rating}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                        ))}
                     </div>
 
-                    {/* CTA Button - Passes selected category to menu page */}
-                    <div className="text-center">
-                        <Link
-                            href={`/menu?category=${selectedCategory.toLowerCase()}`}
-                            className="inline-block px-12 py-4 bg-gradient-to-r from-[#E67449] to-[#D63227] text-white rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
-                            style={{
-                                fontFamily: "Dela Gothic One, sans-serif",
-                                letterSpacing: "2px",
-                            }}
+                    {/* Mobile Arrows */}
+                    <div className="flex md:hidden justify-center gap-6 mt-4">
+                        <button
+                            onClick={() => scroll('left')}
+                            className="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-800"
                         >
-                            VIEW FULL MENU →
-                        </Link>
+                            <FaChevronLeft />
+                        </button>
+                        <button
+                            onClick={() => scroll('right')}
+                            className="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-800"
+                        >
+                            <FaChevronRight />
+                        </button>
                     </div>
                 </div>
+            </div>
 
-                {/* Background Decoration */}
-                <div className="absolute top-1/4 right-10 w-64 h-64 bg-[#E67449]/5 rounded-full blur-3xl -z-10" />
-                <div className="absolute bottom-1/4 left-10 w-48 h-48 bg-[#F5A623]/5 rounded-full blur-3xl -z-10" />
-            </section>
-        </>
+            <style jsx>{`
+                .no-scrollbar::-webkit-scrollbar {
+                    display: none;
+                }
+            `}</style>
+        </section>
     );
 }
+
+

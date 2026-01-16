@@ -11,13 +11,13 @@ export default function OpenNowMenu() {
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&family=Dela+Gothic+One&display=swap');
       `}</style>
 
-      <section className="relative bg-[#E67449] overflow-hidden py-20">
+      <section className="relative bg-[#1E3227] overflow-hidden py-20">
         {/* Top Border Pattern */}
         <div className="absolute top-0 left-0 right-0 h-2 flex">
           {[...Array(50)].map((_, i) => (
             <div
               key={i}
-              className={`flex-1 h-full ${i % 2 === 0 ? "bg-[#2C3E2E]" : "bg-[#E67449]"}`}
+              className={`flex-1 h-full ${i % 2 === 0 ? "bg-[#F5F4E0]" : "bg-[#E25439]"}`}
             />
           ))}
         </div>
@@ -27,7 +27,7 @@ export default function OpenNowMenu() {
           {[...Array(50)].map((_, i) => (
             <div
               key={i}
-              className={`flex-1 h-full ${i % 2 === 0 ? "bg-[#E67449]" : "bg-[#2C3E2E]"}`}
+              className={`flex-1 h-full ${i % 2 === 0 ? "bg-[#E25439]" : "bg-[#F5F4E0]"}`}
             />
           ))}
         </div>
@@ -54,15 +54,14 @@ export default function OpenNowMenu() {
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <div className="relative">
             {/* Menu Card with Shadow */}
-            <div className="bg-[#F9F6F0] rounded-lg shadow-2xl overflow-hidden border-t-4 border-b-4 border-[#2C3E2E]">
+            <div className="bg-[#F5F4E0] rounded-lg shadow-2xl overflow-hidden border-t-4 border-b-4 border-[#1E3227]">
               {/* Striped Header */}
               <div className="h-3 flex">
                 {[...Array(40)].map((_, i) => (
                   <div
                     key={i}
-                    className={`flex-1 h-full ${
-                      i % 2 === 0 ? "bg-[#E67449]" : "bg-[#2C3E2E]"
-                    }`}
+                    className={`flex-1 h-full ${i % 2 === 0 ? "bg-[#E25439]" : "bg-[#1E3227]"
+                      }`}
                   />
                 ))}
               </div>
@@ -74,7 +73,7 @@ export default function OpenNowMenu() {
                   <div className="inline-block mb-4">
                     <div className="relative">
                       <h1
-                        className="text-5xl md:text-6xl font-bold text-[#2C3E2E] mb-2"
+                        className="text-5xl md:text-6xl font-black text-[#1E3227] mb-2"
                         style={{
                           fontFamily: "Dela Gothic One, sans-serif",
                           letterSpacing: "3px",
@@ -84,13 +83,13 @@ export default function OpenNowMenu() {
                       </h1>
                       <div className="flex justify-between items-center">
                         <span
-                          className="text-sm text-[#E67449] font-bold"
+                          className="text-sm text-[#E25439] font-bold"
                           style={{ fontFamily: "Bebas Neue, sans-serif" }}
                         >
                           ARTISAN
                         </span>
                         <span
-                          className="text-sm text-[#E67449] font-bold"
+                          className="text-sm text-[#E25439] font-bold"
                           style={{ fontFamily: "Bebas Neue, sans-serif" }}
                         >
                           PIZZA
@@ -107,7 +106,7 @@ export default function OpenNowMenu() {
                     {/* Section 1 */}
                     <div className="mb-6">
                       <h3
-                        className="text-[#E67449] font-bold text-sm mb-3 border-b border-gray-300 pb-2"
+                        className="text-[#E25439] font-bold text-sm mb-3 border-b border-gray-300 pb-2"
                         style={{ fontFamily: "Poppins, sans-serif" }}
                       >
                         Something To Share
@@ -130,7 +129,7 @@ export default function OpenNowMenu() {
                     {/* Section 2 */}
                     <div className="mb-6">
                       <h3
-                        className="text-[#E67449] font-bold text-sm mb-3 border-b border-gray-300 pb-2"
+                        className="text-[#E25439] font-bold text-sm mb-3 border-b border-gray-300 pb-2"
                         style={{ fontFamily: "Poppins, sans-serif" }}
                       >
                         Romana Pizza
@@ -148,7 +147,7 @@ export default function OpenNowMenu() {
                     {/* Extras Section */}
                     <div className="bg-[#F5F0E8] p-4 rounded-lg">
                       <h3
-                        className="text-[#2C3E2E] font-bold text-xs mb-3 uppercase"
+                        className="text-[#1E3227] font-bold text-xs mb-3 uppercase"
                         style={{ fontFamily: "Poppins, sans-serif" }}
                       >
                         Extras
@@ -248,7 +247,7 @@ export default function OpenNowMenu() {
                   </div>
 
                   <div
-                    className="text-xs text-[#E67449] font-bold text-right"
+                    className="text-xs text-[#E25439] font-bold text-right"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
                     <p>Open On Mon-Fri 09:00am</p>
@@ -264,7 +263,7 @@ export default function OpenNowMenu() {
                   <div
                     key={i}
                     className={`flex-1 h-full ${
-                      i % 2 === 0 ? "bg-[#E67449]" : "bg-[#2C3E2E]"
+                      i % 2 === 0 ? "bg-[#E25439]" : "bg-[#1E3227]"
                     }`}
                   />
                 ))}
@@ -299,7 +298,7 @@ function MenuItem({ name, price, description }) {
     <div className="flex justify-between items-start gap-4 py-1">
       <div className="flex-1">
         <h4
-          className="text-[#2C3E2E] font-bold text-sm"
+          className="text-[#1E3227] font-black text-sm"
           style={{ fontFamily: "Poppins, sans-serif" }}
         >
           {name}
@@ -314,7 +313,7 @@ function MenuItem({ name, price, description }) {
         )}
       </div>
       <span
-        className="text-[#2C3E2E] font-bold text-sm whitespace-nowrap"
+        className="text-[#1E3227] font-black text-sm whitespace-nowrap"
         style={{ fontFamily: "Poppins, sans-serif" }}
       >
         {price}

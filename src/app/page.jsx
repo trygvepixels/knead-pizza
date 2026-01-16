@@ -8,7 +8,9 @@ import {
     HeartIcon
 } from '@heroicons/react/24/solid';
 import Hero from '@/components/Hero';
+import PromoGrid from '@/components/PromoGrid';
 import DailyZoneMenu from '@/components/DailyZoneMenu';
+import DoughStory from '@/components/DoughStory';
 import BestSellerItems from '@/components/BestSellerItems';
 import UsersTestimonials from '@/components/UsersTestimonials';
 import OpenNowMenu from '@/components/OpenNowMenu';
@@ -59,14 +61,15 @@ export default function HomePage() {
 
     return (
         <div className="min-h-screen">
-           <Hero />
+            <Hero />
+            {/* <PromoGrid /> */}
+            <DailyZoneMenu />
+            <BestSellerItems />
+            <OpenNowMenu />
+            <DoughStory />
+            <UsersTestimonials />
 
-           <DailyZoneMenu />
-           <BestSellerItems />
-           <UsersTestimonials />
-           <OpenNowMenu />
 
-            
         </div>
     );
 }

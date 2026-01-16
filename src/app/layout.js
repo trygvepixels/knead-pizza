@@ -73,8 +73,8 @@ export default function RootLayout({ children }) {
             },
             success: {
               iconTheme: {
-                primary: "#dc2626",
-                secondary: "#fff",
+                primary: "#E25439",
+                secondary: "#F5F4E0",
               },
             },
           }}

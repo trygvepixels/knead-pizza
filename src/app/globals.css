@@ -2,8 +2,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F5F4E0;
+  --foreground: #1E3227;
 }
 
 @theme inline {
@@ -15,8 +15,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ffffff;
-    --foreground: #171717;
+    --background: #F5F4E0;
+    --foreground: #1E3227;
   }
 }
 
@@ -131,24 +131,24 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #dc2626, #f97316);
+  background: linear-gradient(to bottom, #E25439, #1E3227);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #b91c1c, #ea580c);
+  background: linear-gradient(to bottom, #D4432A, #16261D);
 }
 
 /* Custom Utilities */
 .text-gradient {
-  background: linear-gradient(135deg, #dc2626 0%, #f97316 100%);
+  background: linear-gradient(135deg, #E25439 0%, #1E3227 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .bg-gradient-pizza {
-  background: linear-gradient(135deg, #dc2626 0%, #f97316 100%);
+  background: linear-gradient(135deg, #E25439 0%, #1E3227 100%);
 }
 
 .glass {

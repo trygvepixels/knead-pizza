@@ -59,19 +59,19 @@ export default function BestSellerItems() {
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800&display=swap');
       `}</style>
 
-      <section className="relative py-20 bg-white overflow-hidden">
+      <section className="relative py-20 bg-[#F5F4E0] overflow-hidden">
         {/* Top Paint Brush Stroke */}
         <div className="absolute top-0 left-0 right-0 h-16">
           <svg viewBox="0 0 1200 100" preserveAspectRatio="none" className="w-full h-full">
             <path
               d="M0,40 Q50,10 100,40 T200,40 T300,40 T400,40 T500,40 T600,40 T700,40 T800,40 T900,40 T1000,40 T1100,40 T1200,40 L1200,0 L0,0 Z"
-              fill="#E8DDD3"
-              opacity="0.8"
+              fill="#1E3227"
+              opacity="0.1"
             />
             <path
               d="M0,60 Q80,30 160,60 T320,60 T480,60 T640,60 T800,60 T960,60 T1120,60 L1200,60 L1200,0 L0,0 Z"
-              fill="#E8DDD3"
-              opacity="0.4"
+              fill="#1E3227"
+              opacity="0.05"
             />
           </svg>
         </div>
@@ -81,13 +81,13 @@ export default function BestSellerItems() {
           <svg viewBox="0 0 1200 100" preserveAspectRatio="none" className="w-full h-full">
             <path
               d="M0,40 Q50,70 100,40 T200,40 T300,40 T400,40 T500,40 T600,40 T700,40 T800,40 T900,40 T1000,40 T1100,40 T1200,40 L1200,100 L0,100 Z"
-              fill="#1a1a1a"
-              opacity="0.9"
+              fill="#E25439"
+              opacity="0.1"
             />
             <path
               d="M0,20 Q80,50 160,20 T320,20 T480,20 T640,20 T800,20 T960,20 T1120,20 L1200,20 L1200,100 L0,100 Z"
-              fill="#1a1a1a"
-              opacity="0.6"
+              fill="#E25439"
+              opacity="0.05"
             />
           </svg>
         </div>
@@ -96,7 +96,7 @@ export default function BestSellerItems() {
           {/* Header */}
           <div className="text-center mb-16">
             <h2
-              className="text-5xl md:text-6xl font-bold text-[#8B2E1F] mb-4"
+              className="text-5xl md:text-6xl font-black text-[#E25439] mb-4"
               style={{ fontFamily: "Bebas Neue, sans-serif", letterSpacing: "2px" }}
             >
               OUR BEST SELLER ITEMS
@@ -122,9 +122,8 @@ export default function BestSellerItems() {
               return (
                 <div
                   key={item.id}
-                  className={`relative group ${
-                    item.featured ? "lg:scale-105 z-20" : ""
-                  }`}
+                  className={`relative group ${item.featured ? "lg:scale-105 z-20" : ""
+                    }`}
                 >
                   {/* Featured Background */}
                   {item.featured && (
@@ -137,7 +136,7 @@ export default function BestSellerItems() {
                       >
                         <path
                           d="M50,20 Q80,10 120,25 L250,40 Q280,45 270,80 L260,350 Q258,380 230,375 L70,360 Q40,355 45,325 L55,60 Q52,30 50,20 Z"
-                          fill="#8B2E1F"
+                          fill="#1E3227"
                           opacity="0.95"
                         />
                       </svg>
@@ -159,16 +158,14 @@ export default function BestSellerItems() {
 
                   {/* Card Content */}
                   <div
-                    className={`relative text-center ${
-                      item.featured ? "pt-8" : ""
-                    }`}
+                    className={`relative text-center ${item.featured ? "pt-8" : ""
+                      }`}
                   >
                     {/* Pizza Image */}
                     <div className="relative w-40 h-40 mx-auto mb-6">
                       <div
-                        className={`absolute inset-0 rounded-full ${
-                          item.featured ? "ring-4 ring-white/30" : "ring-2 ring-gray-200"
-                        }`}
+                        className={`absolute inset-0 rounded-full ${item.featured ? "ring-4 ring-white/30" : "ring-2 ring-gray-200"
+                          }`}
                       >
                         <img
                           src={item.image}
@@ -181,9 +178,8 @@ export default function BestSellerItems() {
 
                     {/* Pizza Name */}
                     <h3
-                      className={`text-2xl font-bold mb-2 ${
-                        item.featured ? "text-white" : "text-[#2D1810]"
-                      }`}
+                      className={`text-2xl font-bold mb-2 ${item.featured ? "text-white" : "text-[#2D1810]"
+                        }`}
                       style={{
                         fontFamily: "Bebas Neue, sans-serif",
                         letterSpacing: "1px",
@@ -194,9 +190,8 @@ export default function BestSellerItems() {
 
                     {/* Description */}
                     <p
-                      className={`text-xs mb-4 px-2 min-h-[40px] ${
-                        item.featured ? "text-white/90" : "text-gray-600"
-                      }`}
+                      className={`text-xs mb-4 px-2 min-h-[40px] ${item.featured ? "text-white/90" : "text-gray-600"
+                        }`}
                       style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                       {item.description}
@@ -205,17 +200,15 @@ export default function BestSellerItems() {
                     {/* Price */}
                     <div className="mb-4">
                       <span
-                        className={`text-2xl font-bold ${
-                          item.featured ? "text-white" : "text-[#8B2E1F]"
-                        }`}
+                        className={`text-2xl font-bold ${item.featured ? "text-[#F5F4E0]" : "text-[#E25439]"
+                          }`}
                         style={{ fontFamily: "Bebas Neue, sans-serif" }}
                       >
                         {item.price}
                       </span>
                       <span
-                        className={`ml-2 text-lg line-through ${
-                          item.featured ? "text-white/60" : "text-gray-400"
-                        }`}
+                        className={`ml-2 text-lg line-through ${item.featured ? "text-white/60" : "text-gray-400"
+                          }`}
                         style={{ fontFamily: "Bebas Neue, sans-serif" }}
                       >
                         {item.originalPrice}
@@ -224,11 +217,10 @@ export default function BestSellerItems() {
 
                     {/* Button */}
                     <button
-                      className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 hover:scale-105 shadow-lg ${
-                        item.featured
-                          ? "bg-white text-[#8B2E1F] hover:bg-gray-100"
-                          : "bg-[#F5A623] text-white hover:bg-[#E09200]"
-                      }`}
+                      className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 hover:scale-105 shadow-lg ${item.featured
+                          ? "bg-[#F5F4E0] text-[#1E3227] hover:bg-white"
+                          : "bg-[#E25439] text-[#F5F4E0] hover:bg-[#D4432A]"
+                        }`}
                       style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                       <ButtonIcon className="text-lg" />
@@ -243,7 +235,7 @@ export default function BestSellerItems() {
           {/* View All Items Button */}
           <div className="text-center">
             <button
-              className="px-12 py-4 bg-black text-white rounded-full font-bold text-sm hover:bg-gray-800 transition-all duration-300 hover:scale-105 shadow-xl"
+              className="px-12 py-4 bg-[#1E3227] text-[#F5F4E0] rounded-full font-bold text-sm hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-xl"
               style={{ fontFamily: "Poppins, sans-serif", letterSpacing: "1px" }}
             >
               VIEW ALL ITEMS
