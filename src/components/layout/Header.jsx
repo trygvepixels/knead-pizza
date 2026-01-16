@@ -18,7 +18,7 @@ const Header = () => {
             <nav className="container mx-auto px-6 py-4 transition-all duration-300">
                 {/* Desktop Layout */}
                 <div className="hidden md:grid grid-cols-3 items-center">
-                    
+
                     {/* Left: Navigation Links */}
                     <div className="flex items-center gap-6 lg:gap-10">
                         {navLinks.map((link) => (
@@ -48,12 +48,14 @@ const Header = () => {
 
                     {/* Right: Order Now Button */}
                     <div className="flex justify-end items-center">
-                        <Link 
-                            href="/order"
+                        <a
+                            href="https://knead-pizzerria.square.site"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="px-8 py-3 bg-[#E25439] text-[#123218] hover:text-[#F5F7E0] rounded-full font-bold uppercase tracking-widest text-sm hover:bg-[#123218] hover:scale-105 transition-all duration-300 shadow-lg"
                         >
                             Order Now
-                        </Link>
+                        </a>
                     </div>
                 </div>
 
@@ -99,13 +101,15 @@ const Header = () => {
                                 {link.name}
                             </Link>
                         ))}
-                        <Link
-                            href="/order"
+                        <a
+                            href="https://knead-pizzerria.square.site"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="px-10 py-4 bg-[#E25439] text-[#123218] hover:text-[#F5F7E0] rounded-full font-bold uppercase tracking-widest text-lg hover:bg-[#123218] transition-all duration-300"
                             onClick={() => setIsMenuOpen(false)}
                         >
                             Order Now
-                        </Link>
+                        </a>
                     </div>
                 )}
             </nav>

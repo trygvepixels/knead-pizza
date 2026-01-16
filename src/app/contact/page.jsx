@@ -6,19 +6,15 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock, FaInstagram, FaFaceboo
 
 export default function ContactPage() {
     return (
-        <div className="min-h-screen bg-[#F5F4E0] font-sans overflow-hidden">
+        <div className="min-h-screen  bg-[#F5F4E0] font-sans overflow-hidden">
             {/* Decorative Background Elements */}
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none -z-10">
+            <div className="absolute top-0 left-0 w-full h-full z-10 overflow-hidden pointer-events-none -z-10">
                 <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
                     className="absolute -top-40 -right-40 w-96 h-96 border-[40px] border-[#E25439]/5 rounded-full"
                 />
-                <motion.div
-                    animate={{ y: [0, 40, 0] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute bottom-20 left-10 w-64 h-64 bg-[#1E3227]/5 rounded-3xl rotate-12"
-                />
+                
             </div>
 
             {/* Hero Section */}

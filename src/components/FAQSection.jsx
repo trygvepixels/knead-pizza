@@ -18,7 +18,7 @@ const FAQSection = () => {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                    
+
                     {/* Column 1: Opening Hours & Catering */}
                     <div className="lg:col-span-4 space-y-8">
                         {/* Opening Hours Card */}
@@ -153,12 +153,14 @@ const FAQSection = () => {
                                             We strongly recommend ordering for Click & Collect via our website. Your pizza will be made, boxed, and put in your hands hot and fresh!
                                         </p>
                                     </div>
-                                    <Link 
-                                        href="/order" 
+                                    <a
+                                        href="https://knead-pizzerria.square.site"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="inline-flex items-center gap-4 px-10 py-5 bg-[#1E3227] text-[#F5F4E0] rounded-full font-black uppercase tracking-widest text-sm hover:bg-[#E25439] hover:scale-105 transition-all duration-300 shadow-xl"
                                     >
                                         <FaStore /> Order Click & Collect
-                                    </Link>
+                                    </a>
                                 </div>
                                 <div className="md:col-span-4 h-full bg-[#E25439]/5 flex items-center justify-center p-12">
                                     <FaMotorcycle className="text-[#E25439] opacity-10 text-[12rem] -rotate-12 group-hover:rotate-0 transition-transform duration-700" />

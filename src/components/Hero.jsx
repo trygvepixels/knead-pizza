@@ -63,18 +63,24 @@ export default function PizzaHero() {
 
             {/* CTA Button & Stamp Row */}
             <div className="flex items-center gap-12 pt-4">
-              <button className="px-10 py-5 bg-[#1E3227] text-[#F5F4E0] rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-2xl" style={{ fontFamily: 'Poppins, sans-serif' }}>
-             Order Now
-              </button>
+              <a
+                href="https://knead-pizzerria.square.site"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-10 py-5 bg-[#1E3227] text-[#F5F4E0] rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-2xl inline-block"
+                style={{ fontFamily: 'Poppins, sans-serif' }}
+              >
+                Order Now
+              </a>
 
               {/* Halal Stamp Placeholder Rendering */}
               <div className="relative w-32 h-32 flex items-center justify-center">
                 <div className="absolute inset-0 rounded-full border-4 border-[#F5F4E0]/30 border-dashed animate-spin-slow"></div>
                 <div className="w-28 h-28 rounded-full border-4 border-[#F5F4E0] flex flex-center text-center p-2 rotate-12">
-                   <div className="flex flex-col items-center justify-center w-full h-full border-2 border-[#F5F4E0] rounded-full">
-                      <span className="text-[#F5F4E0] text-[0.6rem] font-bold uppercase tracking-widest">100% </span>
-                      <span className="text-[#F5F4E0] text-sm font-black uppercase">Fresh</span>
-                   </div>
+                  <div className="flex flex-col items-center justify-center w-full h-full border-2 border-[#F5F4E0] rounded-full">
+                    <span className="text-[#F5F4E0] text-[0.6rem] font-bold uppercase tracking-widest">100% </span>
+                    <span className="text-[#F5F4E0] text-sm font-black uppercase">Fresh</span>
+                  </div>
                 </div>
               </div>
             </div>
