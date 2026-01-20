@@ -43,9 +43,9 @@ export default function PizzaHero() {
         </div>
 
         {/* Main Content */}
-        <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center px-6 md:px-12 max-w-7xl mx-auto w-full">
-          {/* Left Content */}
-          <div className="space-y-6">
+        <div className="relative z-10 flex flex-col justify-center items-center text-center px-6 md:px-12 max-w-7xl mx-auto w-full min-h-[80vh]">
+          {/* Content Wrapper */}
+          <div className="space-y-8 flex flex-col items-center">
             {/* Decorative Wave */}
             <div className="w-24">
               <svg width="100%" height="20" viewBox="0 0 100 20" fill="none" preserveAspectRatio="none">
@@ -54,20 +54,19 @@ export default function PizzaHero() {
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-white text-6xl md:text-[5.5rem] font-[900] leading-[1.05] tracking-tight" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              The best<br />
-              pizza to<br />
-              share with<br />
-              friends
+            <h1 className="text-white text-6xl md:text-[7rem] font-[900] leading-none tracking-tighter uppercase" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              All you<br />
+              <span className="text-[#F5F4E0] bg-[#E25439] px-4">KNEAD</span><br />
+              is love
             </h1>
 
             {/* CTA Button & Stamp Row */}
-            <div className="flex items-center gap-12 pt-4">
+            <div className="flex flex-col md:flex-row items-center gap-8 pt-8">
               <a
                 href="https://knead-pizzerria.square.site"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-10 py-5 bg-[#1E3227] text-[#F5F4E0] rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-2xl inline-block"
+                className="px-12 py-6 bg-[#F5F4E0] text-[#1E3227] rounded-full font-black text-xl hover:bg-[#E25439] hover:text-[#F5F4E0] transition-all duration-300 shadow-2xl inline-block uppercase tracking-widest"
                 style={{ fontFamily: 'Poppins, sans-serif' }}
               >
                 Order Now
@@ -85,21 +84,6 @@ export default function PizzaHero() {
               </div>
             </div>
           </div>
-
-          {/* Right Content - Pizza Image */}
-          <div className="relative h-[600px] md:h-[800px] flex items-center">
-            <div className="absolute right-[-20%] md:right-[-30%] w-[120%] aspect-square max-w-[900px]">
-              <div className="w-full h-full rounded-full overflow-hidden shadow-2xl ring-[20px] ring-white/10 animate-pizza-slow">
-                <Image
-                  src={hero}
-                  alt="Delicious Pizza"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Ticker Tape Ribbon */}
@@ -108,7 +92,7 @@ export default function PizzaHero() {
             {[...Array(6)].map((_, i) => (
               <React.Fragment key={i}>
                 <span className="text-[#1E3227] text-3xl md:text-4xl font-black uppercase tracking-tighter" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                  faster delivery in your town
+                  Artisan Sourdough Pizza
                 </span>
                 <span className="text-[#E25439] text-4xl">✱</span>
               </React.Fragment>

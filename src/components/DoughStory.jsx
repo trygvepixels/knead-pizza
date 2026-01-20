@@ -7,24 +7,24 @@ export default function DoughStory() {
     const steps = [
         {
             number: "01",
-            title: "The Ancient Starter",
+            title: "72-Hour Patience",
             description:
-                "Our journey begins with our 'Mother' starter, nurtured daily for over 3 years to develop a complex, tangy depth of flavour that commercial yeast simply cannot match.",
-            label: "Authentic Roots",
+                "Time is our secret ingredient. We naturally ferment our dough for 72 hours, allowing enzymes to break down gluten for a crust that is incredibly light and balanced.",
+            label: "Slow Fermented",
         },
         {
             number: "02",
-            title: "48-Hour Patience",
+            title: "The Wild Starter",
             description:
-                "Time is our secret ingredient. We cold-ferment our dough for 48 hours, allowing enzymes to break down gluten for a crust that is incredibly light and easy to digest.",
-            label: "Slow Fermented",
+                "Our journey begins with our wild sourdough starter, nurtured daily to develop a complex depth of flavour that commercial yeast simply cannot match.",
+            label: "Naturally Leavened",
         },
         {
             number: "03",
             title: "Mastery of Fire",
             description:
-                "Stretched by hand and blasted at 450°C in our stone oven. The high heat creates the signature 'leopard spotting' and a crust that's crisp yet airy.",
-            label: "High Hydration",
+                "Hand-kneaded and baked to perfection. The long fermentation creates a base that's easier to digest with a depth of flavour you can only achieve through patience.",
+            label: "Light & Airy",
         },
     ];
 
@@ -48,7 +48,7 @@ export default function DoughStory() {
                 ))}
             </div>
 
-          
+
 
             <style jsx>{`
         @keyframes bubble {

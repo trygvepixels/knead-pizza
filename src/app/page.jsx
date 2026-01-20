@@ -23,7 +23,7 @@ export default function HomePage() {
         <div className="min-h-screen">
             <Hero />
 
-            <PizzaShowcase />
+            {/* <PizzaShowcase /> */}
             <div className="space-y-0">
                 <OpenNowMenu />
                 <DoughStory />
