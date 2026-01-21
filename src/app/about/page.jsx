@@ -4,26 +4,40 @@ import React from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { HeartIcon, SparklesIcon, FireIcon } from '@heroicons/react/24/outline'
+import orangeMen from '@/assets/orange-men.png'
 
 const AboutPage = () => {
     return (
         <main className="min-h-screen bg-[#F5F7E0] text-[#123218] overflow-hidden">
             {/* Hero Section */}
-            <section className="relative pt-32 pb-20 px-6 md:px-12 max-w-5xl mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
-                    className="text-center"
-                >
-                    <span className="inline-block px-4 py-1.5 mb-6 rounded-full border border-[#123218]/20 text-sm font-bold tracking-[0.2em] uppercase">
-                        Our Story
-                    </span>
-                    <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-16 leading-[0.85]">
-                        About <br className="md:hidden" /> <span className="text-[#E25439]">Us</span>
-                    </h1>
+            <section className="relative pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 1, ease: "easeOut" }}
+                        className="relative"
+                    >
+                        <Image 
+                            src={orangeMen} 
+                            alt="Chef hugging a pizza" 
+                            className="w-full h-auto transform -rotate-3 hover:rotate-0 transition-transform duration-500"
+                        />
+                    </motion.div>
 
-                    <div className="grid md:grid-cols-2 gap-12 text-left items-start">
+                    <motion.div
+                        initial={{ opacity: 0, x: 30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+                        className="text-left"
+                    >
+                        <span className="inline-block px-4 py-1.5 mb-6 rounded-full border border-[#123218]/20 text-sm font-bold tracking-[0.2em] uppercase">
+                            Our Story
+                        </span>
+                        <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.85]">
+                            About <br /> <span className="text-[#E25439]">Us</span>
+                        </h1>
+
                         <div className="space-y-6 text-xl leading-relaxed opacity-90">
                             <p className="text-2xl font-bold leading-tight">
                                 At Knead, we believe that good food should not only taste exceptional —
@@ -34,12 +48,10 @@ const AboutPage = () => {
                                 and naturally fermented for 72 hours. No shortcuts. No additives.
                                 Just time, craft, passion and a dedication to doing things properly.
                             </p>
-                        </div>
-                        <div className="space-y-6 text-xl leading-relaxed opacity-90">
                             <p>
-                                This slow, three-day fermentation creates a base that’s light, balanced,
-                                and easier to digest, with a depth of flavour you can only achieve through patience.
-                                We finish it with thoughtfully sourced ingredients, house-made sauces,
+                                This slow, three-day fermentation creates a base that’s light, balanced, 
+                                and easier to digest, with a depth of flavour you can only achieve through patience. 
+                                We finish it with thoughtfully sourced ingredients, house-made sauces, 
                                 and toppings chosen for their quality and freshness — not excess.
                             </p>
                             <div className="p-6 bg-[#E25439] text-[#F5F7E0] rounded-2xl transform md:rotate-2 shadow-xl">
@@ -49,21 +61,22 @@ const AboutPage = () => {
                                 </p>
                             </div>
                         </div>
-                    </div>
-                </motion.div>
+                    </motion.div>
+                </div>
             </section>
 
             {/* Philosophy Statement */}
             <section className="py-20 px-6 bg-[#123218] text-[#F5F7E0] relative">
-                <div className="max-w-4xl mx-auto text-center z-10 relative">
+                <div className="max-w-7xl mx-auto text-center z-10 relative">
                     <motion.p
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 1 }}
                         className="text-3xl md:text-5xl font-black uppercase tracking-tight leading-none"
                     >
-                        At Knead, we don’t just make pizza. <br className="hidden md:block" />
-                        We knead. We ferment. <br className="hidden md:block" />
+                        At Knead, we don’t just make pizza. 
+                        <br />
+                        We knead. We ferment. <br />
                         We nourish. We elevate.
                     </motion.p>
                 </div>

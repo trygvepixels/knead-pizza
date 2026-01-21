@@ -101,11 +101,11 @@ export default function Footer() {
                                     <div className="flex items-center gap-3">
                                         <FaEnvelope className="text-[#E25439] flex-shrink-0 text-lg" />
                                         <a
-                                            href="mailto:info@ikneadpizza.com.au"
+                                            href="mailto:ikneadpizzahenleybeach@gmail.com"
                                             className="text-gray-300 text-sm hover:text-[#E25439] transition-colors"
                                             style={{ fontFamily: "Poppins, sans-serif" }}
                                         >
-                                            info@ikneadpizza.com.au
+                                            ikneadpizzahenleybeach@gmail.com
                                         </a>
                                     </div>
                                 </div>

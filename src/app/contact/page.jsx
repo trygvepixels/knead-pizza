@@ -14,7 +14,7 @@ export default function ContactPage() {
                     transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
                     className="absolute -top-40 -right-40 w-96 h-96 border-[40px] border-[#E25439]/5 rounded-full"
                 />
-                
+
             </div>
 
             {/* Hero Section */}
@@ -110,7 +110,7 @@ export default function ContactPage() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             {[
                                 { icon: <FaPhoneAlt />, label: "Call Us", value: "0412 345 678", color: "bg-blue-50 text-blue-600" },
-                                { icon: <FaEnvelope />, label: "Email Us", value: "hello@ikneedpizza.com", color: "bg-purple-50 text-purple-600" }
+                                { icon: <FaEnvelope />, label: "Email Us", value: "ikneadpizzahenleybeach@gmail.com", color: "bg-purple-50 text-purple-600" }
                             ].map((item, i) => (
                                 <motion.div
                                     key={i}
@@ -123,7 +123,7 @@ export default function ContactPage() {
                                         {item.icon}
                                     </div>
                                     <h3 className="text-xs font-black text-gray-400 uppercase tracking-widest mb-1">{item.label}</h3>
-                                    <p className="text-[#1E3227] font-bold text-lg">{item.value}</p>
+                                    <p className="text-[#1E3227] font-bold text-base md:text-lg break-all sm:break-words">{item.value}</p>
                                 </motion.div>
                             ))}
                         </div>
@@ -164,11 +164,16 @@ export default function ContactPage() {
                                 <div className="space-y-2 opacity-70 font-bold uppercase text-sm tracking-wide">
                                     <div className="flex justify-between border-b border-[#1E3227]/10 pb-2">
                                         <span>Mon - Fri</span>
-                                        <span>4:00 PM - 10:00 PM</span>
+                                        <span>17:00 - 21:30</span>
                                     </div>
-                                    <div className="flex justify-between border-b border-[#1E3227]/10 pb-2 text-[#E25439]">
-                                        <span>Sat - Sun</span>
-                                        <span>12:00 PM - 11:00 PM</span>
+                                    <div className="flex flex-col border-b border-[#1E3227]/10 pb-2 text-[#E25439]">
+                                        <div className="flex justify-between">
+                                            <span>Sat - Sun</span>
+                                            <span>12:00 - 15:00</span>
+                                        </div>
+                                        <div className="flex justify-end">
+                                            <span>17:00 - 21:30</span>
+                                        </div>
                                     </div>
                                 </div>
                             </motion.div>

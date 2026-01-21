@@ -43,9 +43,9 @@ export default function PizzaHero() {
         </div>
 
         {/* Main Content */}
-        <div className="relative z-10 flex flex-col justify-center items-center text-center px-6 md:px-12 max-w-7xl mx-auto w-full min-h-[80vh]">
+        <div className="relative z-10 flex flex-col justify-center items-start text-left px-6 md:px-12 max-w-7xl mx-auto w-full min-h-[80vh]">
           {/* Content Wrapper */}
-          <div className="space-y-8 flex flex-col items-center">
+          <div className="space-y-8 flex flex-col items-start">
             {/* Decorative Wave */}
             <div className="w-24">
               <svg width="100%" height="20" viewBox="0 0 100 20" fill="none" preserveAspectRatio="none">
@@ -72,16 +72,7 @@ export default function PizzaHero() {
                 Order Now
               </a>
 
-              {/* Halal Stamp Placeholder Rendering */}
-              <div className="relative w-32 h-32 flex items-center justify-center">
-                <div className="absolute inset-0 rounded-full border-4 border-[#F5F4E0]/30 border-dashed animate-spin-slow"></div>
-                <div className="w-28 h-28 rounded-full border-4 border-[#F5F4E0] flex flex-center text-center p-2 rotate-12">
-                  <div className="flex flex-col items-center justify-center w-full h-full border-2 border-[#F5F4E0] rounded-full">
-                    <span className="text-[#F5F4E0] text-[0.6rem] font-bold uppercase tracking-widest">100% </span>
-                    <span className="text-[#F5F4E0] text-sm font-black uppercase">Fresh</span>
-                  </div>
-                </div>
-              </div>
+          
             </div>
           </div>
         </div>
@@ -92,7 +83,7 @@ export default function PizzaHero() {
             {[...Array(6)].map((_, i) => (
               <React.Fragment key={i}>
                 <span className="text-[#1E3227] text-3xl md:text-4xl font-black uppercase tracking-tighter" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                  Artisan Sourdough Pizza
+                  Saucy by Nature. Wholesome by Attitude
                 </span>
                 <span className="text-[#E25439] text-4xl">✱</span>
               </React.Fragment>
