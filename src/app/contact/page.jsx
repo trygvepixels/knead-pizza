@@ -1,10 +1,68 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock, FaInstagram, FaFacebookF } from "react-icons/fa";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock, FaInstagram, FaFacebookF, FaCheckCircle, FaExclamationCircle, FaSpinner } from "react-icons/fa";
 
 export default function ContactPage() {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
+    });
+    const [status, setStatus] = useState({ type: "", message: "" });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleChange = (e) => {
+        const { id, value } = e.target;
+        setFormData(prev => ({ ...prev, [id]: value }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setStatus({ type: "", message: "" });
+
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzF-2ej6iglLJRJMuvDwcBiM4r5f-Il1MjwG_7Y5hg5MTRJm_ERbmqm_zNssMxURR0/exec";
+
+        if (!SCRIPT_URL) {
+            setStatus({
+                type: "error",
+                message: "API Configuration missing. Please set NEXT_PUBLIC_GOOGLE_SCRIPT_URL."
+            });
+            setIsSubmitting(false);
+            return;
+        }
+
+        try {
+            const response = await fetch(SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors", // Required for GAS
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            // Since mode is 'no-cors', we can't read the response object properly
+            // but if it doesn't throw, it likely succeeded.
+            setStatus({
+                type: "success",
+                message: "Dough-licious! Your message has been sent to our ovens."
+            });
+            setFormData({ name: "", email: "", subject: "", message: "" });
+        } catch (error) {
+            setStatus({
+                type: "error",
+                message: "Oops! Something went wrong. Please try again or call us."
+            });
+            console.error("Submission error:", error);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <div className="min-h-screen  bg-[#F5F4E0] font-sans overflow-hidden">
             {/* Decorative Background Elements */}
@@ -14,7 +72,6 @@ export default function ContactPage() {
                     transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
                     className="absolute -top-40 -right-40 w-96 h-96 border-[40px] border-[#E25439]/5 rounded-full"
                 />
-
             </div>
 
             {/* Hero Section */}
@@ -55,12 +112,16 @@ export default function ContactPage() {
                             Send us a Message
                         </h2>
 
-                        <form className="space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <label className="text-xs font-black text-[#1E3227] uppercase tracking-widest ml-1">Full Name</label>
                                     <input
                                         type="text"
+                                        id="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        required
                                         placeholder="John Doe"
                                         className="w-full bg-[#F5F4E0]/50 border-2 border-transparent focus:border-[#E25439] rounded-2xl px-6 py-4 outline-none transition-all font-medium text-[#1E3227] placeholder:text-gray-400"
                                     />
@@ -69,6 +130,10 @@ export default function ContactPage() {
                                     <label className="text-xs font-black text-[#1E3227] uppercase tracking-widest ml-1">Email Address</label>
                                     <input
                                         type="email"
+                                        id="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
                                         placeholder="john@example.com"
                                         className="w-full bg-[#F5F4E0]/50 border-2 border-transparent focus:border-[#E25439] rounded-2xl px-6 py-4 outline-none transition-all font-medium text-[#1E3227] placeholder:text-gray-400"
                                     />
@@ -79,6 +144,10 @@ export default function ContactPage() {
                                 <label className="text-xs font-black text-[#1E3227] uppercase tracking-widest ml-1">Subject</label>
                                 <input
                                     type="text"
+                                    id="subject"
+                                    value={formData.subject}
+                                    onChange={handleChange}
+                                    required
                                     placeholder="What's this about?"
                                     className="w-full bg-[#F5F4E0]/50 border-2 border-transparent focus:border-[#E25439] rounded-2xl px-6 py-4 outline-none transition-all font-medium text-[#1E3227] placeholder:text-gray-400"
                                 />
@@ -87,18 +156,47 @@ export default function ContactPage() {
                             <div className="space-y-2">
                                 <label className="text-xs font-black text-[#1E3227] uppercase tracking-widest ml-1">Your Message</label>
                                 <textarea
+                                    id="message"
                                     rows="5"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    required
                                     placeholder="Type your message here..."
                                     className="w-full bg-[#F5F4E0]/50 border-2 border-transparent focus:border-[#E25439] rounded-2xl px-6 py-4 outline-none transition-all font-medium text-[#1E3227] placeholder:text-gray-400 resize-none"
                                 ></textarea>
                             </div>
 
+                            <AnimatePresence>
+                                {status.message && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: "auto" }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        className={`flex items-center gap-3 p-4 rounded-xl text-sm font-bold ${status.type === "success" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+                                            }`}
+                                    >
+                                        {status.type === "success" ? <FaCheckCircle /> : <FaExclamationCircle />}
+                                        {status.message}
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+
                             <motion.button
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="w-full py-5 bg-[#E25439] text-white rounded-2xl font-black uppercase tracking-[0.2em] text-lg shadow-xl hover:bg-[#1E3227] transition-colors duration-300"
+                                disabled={isSubmitting}
+                                type="submit"
+                                className={`w-full py-5 bg-[#E25439] text-white rounded-2xl font-black uppercase tracking-[0.2em] text-lg shadow-xl hover:bg-[#1E3227] transition-all duration-300 flex items-center justify-center gap-3 ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+                                    }`}
                             >
-                                Send Dough-licious Message
+                                {isSubmitting ? (
+                                    <>
+                                        <FaSpinner className="animate-spin" />
+                                        Baking Message...
+                                    </>
+                                ) : (
+                                    "Send Dough-licious Message"
+                                )}
                             </motion.button>
                         </form>
                     </motion.div>
