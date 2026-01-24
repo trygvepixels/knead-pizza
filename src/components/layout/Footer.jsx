@@ -43,7 +43,7 @@ export default function Footer() {
                         {/* Top Section */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
                             {/* Logo & Description */}
-                            <div>
+                            <div className="flex flex-col items-center">
                                 <div className="mb-6">
                                     <div className="relative h-16 w-40 brightnes s-0 inv ert">
                                         <Image
@@ -55,13 +55,13 @@ export default function Footer() {
                                     </div>
                                 </div>
                                 <p
-                                    className="text-gray-400 text-sm leading-relaxed max-w-xs mb-4"
+                                    className="text-gray-400 text-sm leading-relaxed max-w-xs mb-4 text-center"
                                     style={{ fontFamily: "Poppins, sans-serif" }}
                                 >
-                                    <strong className="text-white text-base block mb-2">HAND STRETCHED ARTISAN PIZZA</strong>
-                                    Authentic Italian-style pizzas made with passion in Henley Beach, Adelaide. Fresh ingredients, handcrafted with love.
+                                    <strong className="text-white text-base block mb-2 text-center">Artisan Sourdough Pizza</strong>
+                                    Authentic Neopolitan pizza made with passion
                                 </p>
-                                <p className="text-[#E25439] font-black uppercase tracking-widest text-sm">
+                                <p className="text-[#E25439] font-black uppercase tracking-widest text-sm text-center">
                                     Open Now in Henley Beach! 🍕
                                 </p>
                             </div>
@@ -84,9 +84,8 @@ export default function Footer() {
                                             className="text-gray-300 text-sm font-medium"
                                             style={{ fontFamily: "Poppins, sans-serif" }}
                                         >
-                                            3/269 Seaview Road<br />
-                                            Henley Beach, SA 5022<br />
-                                            Adelaide, Australia
+                                            Shop 3, 269 Seaview Road,<br />
+                                            Henley Beach, 5022
                                         </p>
                                     </div>
                                     <div className="flex items-center gap-3">
@@ -164,7 +163,7 @@ export default function Footer() {
                             {/* Social Media Icons */}
                             <div className="flex items-center gap-4">
                                 <Link
-                                    href="https://instagram.com/ikneadpizzahenleybeach"
+                                    href="https://www.instagram.com/ikneadpizzahenleybeach"
                                     target="_blank"
                                     className="w-10 h-10 rounded-lg border-2 border-[#E25439] flex items-center justify-center text-[#E25439] hover:bg-[#E25439] hover:text-[#F5F4E0] transition-all"
                                     title="@ikneadpizzahenleybeach"
@@ -172,7 +171,7 @@ export default function Footer() {
                                     <FaInstagram className="text-lg" />
                                 </Link>
                                 <Link
-                                    href="https://facebook.com/ikneadpizzahenleybeach"
+                                    href="https://www.facebook.com/kneadpizzeriahenleybeach"
                                     target="_blank"
                                     className="w-10 h-10 rounded-lg border-2 border-gray-600 flex items-center justify-center text-gray-400 hover:border-[#E25439] hover:text-[#E25439] transition-all"
                                 >

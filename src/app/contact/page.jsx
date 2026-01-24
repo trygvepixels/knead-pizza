@@ -207,7 +207,7 @@ export default function ContactPage() {
                         {/* Quick Contact Cards */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             {[
-                                { icon: <FaPhoneAlt />, label: "Call Us", value: "0412 345 678", color: "bg-blue-50 text-blue-600" },
+                                { icon: <FaPhoneAlt />, label: "Call Us", value: "0466 477 713", color: "bg-blue-50 text-blue-600" },
                                 { icon: <FaEnvelope />, label: "Email Us", value: "ikneadpizzahenleybeach@gmail.com", color: "bg-purple-50 text-purple-600" }
                             ].map((item, i) => (
                                 <motion.div
@@ -241,9 +241,8 @@ export default function ContactPage() {
                                     <h3 className="text-3xl font-black uppercase" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>Visit the Pizzeria</h3>
                                 </div>
                                 <p className="text-xl font-medium leading-relaxed max-w-md opacity-80 uppercase italic">
-                                    123 Henely Beach Road, <br />
-                                    Henley Beach, SA 5022 <br />
-                                    Adelaide, Australia
+                                    Shop 3, 269 Seaview Road, <br />
+                                    Henley Beach, 5022 <br />
                                 </p>
                             </div>
                         </motion.div>
@@ -284,8 +283,8 @@ export default function ContactPage() {
                                 <h3 className="text-xl font-black text-[#1E3227] uppercase" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>Follow the Sauce</h3>
                                 <div className="flex gap-4">
                                     {[
-                                        { icon: <FaInstagram />, link: "https://instagram.com" },
-                                        { icon: <FaFacebookF />, link: "https://facebook.com" }
+                                        { icon: <FaInstagram />, link: "https://www.instagram.com/ikneadpizzahenleybeach" },
+                                        { icon: <FaFacebookF />, link: "https://www.facebook.com/kneadpizzeriahenleybeach" }
                                     ].map((social, i) => (
                                         <a
                                             key={i}

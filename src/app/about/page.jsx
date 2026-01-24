@@ -31,9 +31,7 @@ const AboutPage = () => {
                         transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
                         className="text-left"
                     >
-                        <span className="inline-block px-4 py-1.5 mb-6 rounded-full border border-[#123218]/20 text-sm font-bold tracking-[0.2em] uppercase">
-                            Our Story
-                        </span>
+                        
                         <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.85]">
                             About <br /> <span className="text-[#E25439]">Us</span>
                         </h1>
