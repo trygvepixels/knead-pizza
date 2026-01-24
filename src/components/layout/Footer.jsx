@@ -61,9 +61,9 @@ export default function Footer() {
                                     <strong className="text-white text-base block mb-2 text-center">Artisan Sourdough Pizza</strong>
                                     Authentic Neopolitan pizza made with passion
                                 </p>
-                                <p className="text-[#E25439] font-black uppercase tracking-widest text-sm text-center">
+                                {/* <p className="text-[#E25439] font-black uppercase tracking-widest text-sm text-center">
                                     Open Now in Henley Beach! 🍕
-                                </p>
+                                </p> */}
                             </div>
 
                             {/* Contact Information */}
