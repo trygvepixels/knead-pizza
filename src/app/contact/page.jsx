@@ -260,17 +260,12 @@ export default function ContactPage() {
                                 </div>
                                 <div className="space-y-2 opacity-70 font-bold uppercase text-sm tracking-wide">
                                     <div className="flex justify-between border-b border-[#1E3227]/10 pb-2">
-                                        <span>Mon - Fri</span>
-                                        <span>17:00 - 21:30</span>
+                                        <span>Sun - Thu</span>
+                                        <span>17:00 - 20:30</span>
                                     </div>
-                                    <div className="flex flex-col border-b border-[#1E3227]/10 pb-2 text-[#E25439]">
-                                        <div className="flex justify-between">
-                                            <span>Sat - Sun</span>
-                                            <span>12:00 - 15:00</span>
-                                        </div>
-                                        <div className="flex justify-end">
-                                            <span>17:00 - 21:30</span>
-                                        </div>
+                                    <div className="flex justify-between border-b border-[#1E3227]/10 pb-2 text-[#E25439]">
+                                        <span>Fri - Sat</span>
+                                        <span>17:00 - 21:00</span>
                                     </div>
                                 </div>
                             </motion.div>

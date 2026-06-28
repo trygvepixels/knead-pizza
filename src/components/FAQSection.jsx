@@ -33,16 +33,12 @@ const FAQSection = () => {
                                 <p className="text-[#E25439] font-bold text-lg">Open 7 Days a week</p>
                                 <div className="space-y-4">
                                     <div className="flex justify-between items-center pb-4 border-b border-[#1E3227]/5">
-                                        <span className="font-bold text-[#1E3227]/60 uppercase text-sm tracking-widest">Mon - Thu</span>
-                                        <span className="font-black text-[#1E3227]">16:00 – 21:00</span>
-                                    </div>
-                                    <div className="flex justify-between items-center pb-4 border-b border-[#1E3227]/5">
-                                        <span className="font-bold text-[#1E3227]/60 uppercase text-sm tracking-widest">Friday</span>
-                                        <span className="font-black text-[#1E3227]">16:00 – 21:30</span>
+                                        <span className="font-bold text-[#1E3227]/60 uppercase text-sm tracking-widest">Sun - Thu</span>
+                                        <span className="font-black text-[#1E3227]">17:00 – 20:30</span>
                                     </div>
                                     <div className="flex justify-between items-center">
-                                        <span className="font-bold text-[#1E3227]/60 uppercase text-sm tracking-widest">Sat - Sun</span>
-                                        <span className="font-black text-[#1E3227]">12:00 – 21:30</span>
+                                        <span className="font-bold text-[#1E3227]/60 uppercase text-sm tracking-widest">Fri - Sat</span>
+                                        <span className="font-black text-[#1E3227]">17:00 – 21:00</span>
                                     </div>
                                 </div>
                             </div>
